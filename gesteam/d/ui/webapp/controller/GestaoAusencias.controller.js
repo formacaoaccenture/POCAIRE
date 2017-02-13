@@ -8,6 +8,21 @@ var ausencias;
 var controller;
 var botao = 1;
 var oModel;
+
+
+
+
+			var horaInicio = sap.ui.getCore().byId("horaInicio");
+			var horaFim = sap.ui.getCore().byId("horaFim");
+
+
+
+
+
+
+
+
+
 return Controller.extend("POCAIRE.controller.GestaoAusencias", {
 	onInit: function() {
 		//estou a ir buscar o modelo que esta  na view principal
@@ -119,8 +134,7 @@ return Controller.extend("POCAIRE.controller.GestaoAusencias", {
 			controller.dialogFragment = new sap.ui.xmlfragment("POCAIRE.fragment.dialogs.dialog_Absence", controller);
 			sap.ui.getCore().byId("gestaoAusencias").addDependent(controller.dialogFragment);
 			controller.dialogFragment.open();
-			var horaInicio = sap.ui.getCore().byId("horaInicio");
-			var horaFim = sap.ui.getCore().byId("horaFim");
+
 			//para estes campos de input nao aparecerem no momento em que se gera o dialog
 			horaInicio.setVisible(false);
 			horaFim.setVisible(false);
@@ -130,8 +144,7 @@ return Controller.extend("POCAIRE.controller.GestaoAusencias", {
 	},
 
 	onPressFerias: function(event) {
-		var horaInicio = sap.ui.getCore().byId("horaInicio");
-		var horaFim = sap.ui.getCore().byId("horaFim");
+
 		horaInicio.setVisible(false);
 		horaFim.setVisible(false);
 
@@ -144,8 +157,7 @@ return Controller.extend("POCAIRE.controller.GestaoAusencias", {
 	},
 
 	onPressFormacao: function(event) {
-		var horaInicio = sap.ui.getCore().byId("horaInicio");
-		var horaFim = sap.ui.getCore().byId("horaFim");
+
 		horaInicio.setVisible(true);
 		horaFim.setVisible(true);
 
