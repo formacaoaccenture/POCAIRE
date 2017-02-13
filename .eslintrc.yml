@@ -6,6 +6,7 @@ globals:
 
 rules:
     array-bracket-spacing: "error"
+    use strict: "error"
     array-callback-return: "error"
     arrow-body-style: ["error", "as-needed"]
     arrow-parens: ["error", "as-needed"]
