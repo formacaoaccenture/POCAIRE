@@ -58,30 +58,43 @@ sap.ui.define(['sap/ui/core/mvc/Controller',
 
 				for (var i = 0; i < totalDB.length; i++) {
 					current_user = totalDB[i].UserID;
+						var a =user_FirstName.push(totalDB[i].FirstName);
+						var b =user_LastName.push(totalDB[i].LastName);
+						var c =user_UserID.push(totalDB[i].UserID);
+						var d =user_Type.push(totalDB[i].Type);
+						var f =user_StartDate.push(totalDB[i].StartDate);
+						var g =user_EndDate.push(totalDB[i].EndDate);
+						var h =user_Comment.push(totalDB[i].Comment);
+						var i =user_Status.push(totalDB[i].Status);
+						var j =user_TableID.push(totalDB[i].TableID);
+						var k =user_currentComment.push("");
+						var l =user_currentDateInterval.push("");
 					if (i == 0) {
-						user_FirstName.push(totalDB[i].FirstName);
-						user_LastName.push(totalDB[i].LastName);
-						user_UserID.push(totalDB[i].UserID);
-						user_Type.push(totalDB[i].Type);
-						user_StartDate.push(totalDB[i].StartDate);
-						user_EndDate.push(totalDB[i].EndDate);
-						user_Comment.push(totalDB[i].Comment);
-						user_Status.push(totalDB[i].Status);
-						user_TableID.push(totalDB[i].TableID);
-						user_currentComment.push("");
-						user_currentDateInterval.push("");
+						a;
+						b;
+						c;
+						d;
+						e;
+						f;
+						g;
+						h;
+						i;
+						j;
+						k;
+						l;
 					} else if (current_user == totalDB[i - 1].UserID) {
-						user_FirstName.push(totalDB[i].FirstName);
-						user_LastName.push(totalDB[i].LastName);
-						user_UserID.push(totalDB[i].UserID);
-						user_Type.push(totalDB[i].Type);
-						user_StartDate.push(totalDB[i].StartDate);
-						user_EndDate.push(totalDB[i].EndDate);
-						user_Comment.push(totalDB[i].Comment);
-						user_Status.push(totalDB[i].Status);
-						user_TableID.push(totalDB[i].TableID);
-						user_currentComment.push("");
-						user_currentDateInterval.push("");
+						a;
+						b;
+						c;
+						d;
+						e;
+						f;
+						g;
+						h;
+						i;
+						j;
+						k;
+						l;
 
 					} else {
 
@@ -108,17 +121,18 @@ sap.ui.define(['sap/ui/core/mvc/Controller',
 						arrayCurrentDateInterval.push("");
 						user_currentDateInterval = [];
 
-						user_FirstName.push(totalDB[i].FirstName);
-						user_LastName.push(totalDB[i].LastName);
-						user_UserID.push(totalDB[i].UserID);
-						user_Type.push(totalDB[i].Type);
-						user_StartDate.push(totalDB[i].StartDate);
-						user_EndDate.push(totalDB[i].EndDate);
-						user_Comment.push(totalDB[i].Comment);
-						user_Status.push(totalDB[i].Status);
-						user_TableID.push(totalDB[i].TableID);
-						user_currentComment.push("");
-						user_currentDateInterval.push("");
+						a;
+						b;
+						c;
+						d;
+						e;
+						f;
+						g;
+						h;
+						i;
+						j;
+						k;
+						l;
 					}
 
 				}
