@@ -5,8 +5,9 @@ globals:
     sap: true
 
 rules:
+
     array-bracket-spacing: "error"
-    use strict: "error"
+    use strict: "--fix"
     array-callback-return: "error"
     arrow-body-style: ["error", "as-needed"]
     arrow-parens: ["error", "as-needed"]
