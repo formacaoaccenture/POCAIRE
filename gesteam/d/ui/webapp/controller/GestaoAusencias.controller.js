@@ -9,7 +9,7 @@ var controller;
 var botao = 1;
 var oModel;
 var existe = 0;
-
+var legenda = sap.ui.getCore().byId("legend1");
 
 
 
@@ -32,7 +32,7 @@ return Controller.extend("POCAIRE.controller.GestaoAusencias", {
 		//estou a chamar a funcao no inicio porque quero que apresente ja os dados que estao no modelo criado
 		var oCalendar = sap.ui.getCore().byId("calendar");
 		//estou a ir buscar a caixa das legendas
-		var legenda = sap.ui.getCore().byId("legend1");
+		
 		//variavel para conter o array das datas do modelo (ausencias)
 		ausencias = oModel.getData();
 		
@@ -211,7 +211,6 @@ return Controller.extend("POCAIRE.controller.GestaoAusencias", {
 		var aSelectedDates = oCalendar.getSelectedDates();
 		var BeginDate = aSelectedDates[0].getStartDate();
 		var EndDate = aSelectedDates[0].getEndDate();
-		var legenda = sap.ui.getCore().byId("legend1");
 		var sType;
 		var Leg;
 		//estou a buscar os inputs do dialog
