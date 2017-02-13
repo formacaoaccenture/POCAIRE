@@ -42,7 +42,7 @@ sap.ui.define([
 			oDialog.open();
 		},
 
-		onAddOk: function() {
+		onOk: function() {
 
 			// get values from the input fields
 			var iprojectId = sap.ui.getCore().byId("input_projectId").getValue();
@@ -115,7 +115,7 @@ sap.ui.define([
 			oEditDialog.open();
 		},
 
-		onEditOk: function() {
+		/* onEditOk: function() {
             
 		// get values from the input fields
 			var iprojectId = sap.ui.getCore().byId("input_projectId").getValue();
@@ -132,7 +132,7 @@ sap.ui.define([
     			idPSupervisor:  parseFloat(iidPSupervisor),
     			projectName: iprojectName,
     			WBS: iWBS
-			};
+			}; */
             
 	
             editXS(oInput);

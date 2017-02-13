@@ -32,7 +32,7 @@
 		
 		<!-- buttons on the bottom -->
 		<buttons>
-				<Button text="{i18n>ok}" press="onAddOk"></Button>
+				<Button text="{i18n>ok}" press="onOk"></Button>
 				<Button text="{i18n>close}" press="onAddClose"></Button>
 		</buttons>
 	</Dialog>

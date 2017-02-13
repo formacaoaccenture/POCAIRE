@@ -29,7 +29,7 @@
 		</content>
 		<!-- buttons on the bottom -->
 		<buttons>
-			<Button text="{i18n>ok}" press="onEditOk"></Button>
+			<Button text="{i18n>ok}" press="onOk"></Button>
 			<Button text="{i18n>close}" press="onEditClose"></Button>
 		</buttons>
 	</Dialog>
