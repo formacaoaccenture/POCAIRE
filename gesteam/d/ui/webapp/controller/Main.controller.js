@@ -440,8 +440,8 @@ sap.ui.define([
 			this.changeBtnStyle("logout");
 		},
 
-		getXS: function(xsName) {
-			var xsURL = "../../services/" + xsName;
+		getXS: function(XX) {
+			var xsURL = "../../services/" + XX;
 			var model;
 			$.ajax({
 				beforeSend: function(request) {
@@ -461,40 +461,15 @@ sap.ui.define([
 			});
 
 			var oSQL = new sap.ui.model.json.JSONModel(model);
-			var modelName = xsName.split(".")[0];
+			var modelName = XX.split(".")[0];
 
 			this.getView().setModel(oSQL, modelName);
 			sap.ui.getCore().setModel(oSQL, modelName);
 
 		},
-		
-		getXSodata: function(xsodataName) {
-			var xsURL = "../../services/" + xsodataName; 
-			var model;
-			$.ajax({
-				beforeSend: function(request) {
-					request.setRequestHeader("Content-Type", 'application/json');
-				},
-				type: "GET",
-				dataType: "json",
-				url: xsURL,
-				async: false,
-				success: function(data1) {
-					console.log(data1.d.results);
-					model = data1.d.results;
-				},
-				error: function(error) {
-					console.log(error);
-				}
-			});
 
-			var oSQL = new sap.ui.model.json.JSONModel(model);
-			var modelName = xsodataName.split(".")[0];
-
-			this.getView().setModel(oSQL, modelName);
-			sap.ui.getCore().setModel(oSQL, modelName);
-
-		}
+	getXS(xsName);
+	getXS(xsodataName);
 		
 	});
 
