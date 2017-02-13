@@ -1,0 +1,31 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc"
+	xmlns:unified="sap.ui.unified">
+	<VBox id="oTabela2" class="sapUiSmallMargin" visible="false">
+		<PlanningCalendar class="calendar" rows="{view_gestao>/}" viewKey="A" appointmentsVisualization="Filled"
+			showEmptyIntervalHeaders="false">
+			<toolbarContent>
+			</toolbarContent>
+			<views>
+				<PlanningCalendarView key="A"
+				intervalType="Day"
+				
+				intervalsM="15"
+				
+				showSubIntervals="false">
+				</PlanningCalendarView>
+			</views>
+			<rows>
+				<PlanningCalendarRow title="{view_gestao>projectName}" appointments="{view_gestao>[]}">
+					<appointments>
+						<unified:CalendarAppointment startDate="{view_gestao>startDate}" endDate="{view_gestao>endDate}" title="{view_gestao>username}"></unified:CalendarAppointment>
+					</appointments>
+				</PlanningCalendarRow>
+			</rows>
+		</PlanningCalendar>
+		<VBox>
+			<Text text="texto"/>
+			<Text text=" MD: Miguel Dionisio"/>
+			<Text text=" VA: Vanessa Almeida"/>
+		</VBox>
+	</VBox>
+</core:FragmentDefinition>

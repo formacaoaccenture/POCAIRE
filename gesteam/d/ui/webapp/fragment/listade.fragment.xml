@@ -1,0 +1,54 @@
+<core:FragmentDefinition controllerName="POCAIRE.controller.PlanningCalendar"
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core" displayBlock="true"
+	xmlns:html="http://www.w3.org/1999/xhtml"
+	xmlns:table="sap.ui.table"
+	xmlns:unified="sap.ui.unified"
+	xmlns:mvc="sap.ui.core.mvc">
+	<VBox>
+		<table:Table id="listaDeTable" rows="{newAbsencesDates>/}" selectionMode="None" cellClick="blockComboBoxInput">
+			<table:columns>
+				<table:Column>
+					<Label text="{i18n>table_name}"/>
+					<table:template templateShareable="false">
+						<Label id="lista_name" text="{newAbsencesDates>FirstName} {newAbsencesDates>LastName} "/>
+					</table:template>
+				</table:Column>
+				<table:Column>
+					<Label text="{i18n>order}"/>
+					<table:template templateShareable="false">
+						<ComboBox id="combotype" items="{newAbsencesDates>Type}" selectionChange="onComboBoxTypeChange">
+							<core:Item key="{newAbsencesDates>UserID}" text="{newAbsencesDates>Type}"/>
+						</ComboBox>
+					</table:template>
+				</table:Column>
+				<table:Column>
+					<Label text="{i18n>dates}"/>
+					<table:template templateShareable="false">
+						<Label text="{newAbsencesDates>CurrentDateInterval/}"/>
+					</table:template>
+				</table:Column>
+				<table:Column>
+					<Label text="{i18n>comment}"/>
+					<table:template templateShareable="false">
+						<Label text="{newAbsencesDates>CurrentComment/}"/>
+					</table:template>
+				</table:Column>
+				<table:Column>
+					<Label text="{i18n>status}"/>
+					<table:template templateShareable="false">
+						<ComboBox id="combostatus" items="{ path: 'oApprovalStatus>/approvalStatus'}" selectionChange="onComboBoxStatusChange"
+							enabled="{path: 'newAbsencesDates>CurrentComment', formatter: '.getEnabledComboBox'}">
+							<core:Item key="{oApprovalStatus>status}" text="{oApprovalStatus>action}"/>
+						</ComboBox>
+					</table:template>
+					<!--
+					<table:template><ComboBox selectionChange="onComboBoxStatusChange" enabled="{path: 'absencesDates>Comment', formatter: '.getEnabledComboBox'}"><items><core:Item key="c1" text="Approve"/><core:Item key="c2" text="Reject"/></items></ComboBox></table:template>-->
+				</table:Column>
+			</table:columns>
+		</table:Table>
+		<!--
+		<HBox><Button icon="sap-icon://navigation-left-arrow"></Button><Button icon="sap-icon://navigation-right-arrow"></Button></HBox>
+		-->
+	</VBox>
+</core:FragmentDefinition>

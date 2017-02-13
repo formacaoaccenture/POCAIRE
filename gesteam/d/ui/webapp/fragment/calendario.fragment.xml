@@ -1,0 +1,29 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core"
+	xmlns:html="http://www.w3.org/1999/xhtml"
+	xmlns:unified="sap.ui.unified">
+	<HBox  binding="{newAbsencesDates>/}" class="sapUiSmallMargin">
+		<PlanningCalendar id="PC1" singleSelection="false" 
+		showIntervalHeaders="false" rows="{newAbsencesDates>/}" 
+		appointmentsVisualization="Filled"
+		appointmentSelect="handleAppointmentSelect" 
+		intervalSelect="handleIntervalSelect" 
+		startDate="{path: '/startDate'}">
+			<rows>
+				<PlanningCalendarRow icon="" 
+				title="{newAbsencesDates>FirstName} {newAbsencesDates>LastName}" text="teste" 
+				appointments="{newAbsencesDates}">
+					<appointments>
+						<unified:CalendarAppointment startDate="{newAbsencesDates>StartDate/}" 
+						endDate="{newAbsencesDates>EndDate/}" 
+						icon="" title="{newAbsencesDates>FirstName}" 
+						text="teste" 
+						type="{newAbsencesDates>Type/}" 
+							tentative="false"></unified:CalendarAppointment>
+					</appointments>
+				</PlanningCalendarRow>
+			</rows>
+		</PlanningCalendar>
+	</HBox>
+</core:FragmentDefinition>

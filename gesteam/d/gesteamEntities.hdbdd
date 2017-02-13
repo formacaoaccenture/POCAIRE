@@ -1,0 +1,61 @@
+namespace acn.hcm.gesteam.d;
+@Schema: 'ACN_POC_GESTEAM' 
+context gesteamEntities {
+   type myKeyType: String(60);
+   Entity user{
+        key userID: Integer;
+        supervisorID: Integer;
+        username: String(60);
+        password: String(60);
+        role: Boolean;
+        level: String(60);
+        firstName: String(60);
+        lastName: String(60);
+        totalHolidays: Integer;
+        compensation:Integer;
+        ext:Integer;
+        local: String(60);
+
+   };
+   Entity Assignments{
+        key assignmentsID: Integer;
+        userID:Integer;
+        projectID:Integer;
+        supervisorID: Integer;
+        date: LocalDate;
+        hours:Integer;
+        status:String(60);
+        startDate: LocalDate;
+        endDate: LocalDate;
+
+
+   };
+   Entity logins{
+        key loginID: Integer;
+        Id_user:String(60);
+        loginDate: UTCTimestamp; 
+    };
+    Entity absencesDates{
+        key absencesDatesID: Integer;
+        userID:Integer;
+        startDate: LocalDate; 
+        endDate: LocalDate; 
+        type: String(60);
+        status: String(60);
+        comment: String(1000);
+    };
+    Entity projects{
+        key projectId: Integer;
+        clientId: Integer;
+        IdPSupervisor: Integer;
+        projectName: String(60);
+        WBS:String(60);
+    };
+    Entity client{
+        key clientId: Integer;
+        clientName:String(60);
+    };
+    
+};
+
+

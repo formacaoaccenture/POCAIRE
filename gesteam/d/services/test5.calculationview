@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="test5" applyPrivilegeType="ANALYTIC_PRIVILEGE" dataCategory="CUBE" dimensionType="STANDARD" schemaVersion="2.3" defaultClient="$$client$$" visibility="reportingEnabled" outputViewType="Aggregation" calculationScenarioType="TREE_BASED" enforceSqlExecution="false">
+<descriptions defaultDescription="test5"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="acn.hcm.gesteam.d::gesteamEntities.user" type="DATA_BASE_TABLE">
+    <viewAttributes allViewAttributes="true"/>
+    <columnObject schemaName="ACN_POC_GESTEAM" columnObjectName="acn.hcm.gesteam.d::gesteamEntities.user"/>
+  </DataSource>
+  <DataSource id="acn.hcm.gesteam.d::gesteamEntities.Assignments" type="DATA_BASE_TABLE">
+    <viewAttributes allViewAttributes="true"/>
+    <columnObject schemaName="ACN_POC_GESTEAM" columnObjectName="acn.hcm.gesteam.d::gesteamEntities.Assignments"/>
+  </DataSource>
+  <DataSource id="acn.hcm.gesteam.d::gesteamEntities.projects" type="DATA_BASE_TABLE">
+    <viewAttributes allViewAttributes="true"/>
+    <columnObject schemaName="ACN_POC_GESTEAM" columnObjectName="acn.hcm.gesteam.d::gesteamEntities.projects"/>
+  </DataSource>
+  <DataSource id="Join_2$$$$acn.hcm.gesteam.d::gesteamEntities.Assignments$$" type="DATA_BASE_TABLE">
+    <viewAttributes allViewAttributes="true"/>
+    <columnObject schemaName="ACN_POC_GESTEAM" columnObjectName="acn.hcm.gesteam.d::gesteamEntities.Assignments"/>
+  </DataSource>
+</dataSources>
+<calculationViews>
+  <calculationView xsi:type="Calculation:JoinView" id="Join_1" joinType="inner">
+    <viewAttributes>
+      <viewAttribute id="username"/>
+      <viewAttribute id="userID"/>
+      <viewAttribute id="assignmentsID"/>
+      <viewAttribute id="projectID"/>
+      <viewAttribute id="supervisorID"/>
+    
+      <viewAttribute id="startDate"/>
+      <viewAttribute id="endDate"/>
+    
+      <viewAttribute id="date"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="#acn.hcm.gesteam.d::gesteamEntities.user">
+      <mapping xsi:type="Calculation:AttributeMapping" target="username" source="username"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="userID" source="userID"/>
+    </input>
+    <input node="#acn.hcm.gesteam.d::gesteamEntities.Assignments">
+      <mapping xsi:type="Calculation:AttributeMapping" target="assignmentsID" source="assignmentsID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="projectID" source="projectID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="supervisorID" source="supervisorID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="startDate" source="startDate"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="endDate" source="endDate"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="date" source="date"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="userID" source="userID"/>
+    </input>
+    <joinAttribute name="userID"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="Join_2" joinType="inner">
+    <viewAttributes>
+      <viewAttribute id="projectId"/>
+      <viewAttribute id="projectName"/>
+      <viewAttribute id="assignmentsID"/>
+      <viewAttribute id="userID"/>
+      <viewAttribute id="projectID"/>
+      <viewAttribute id="supervisorID"/>
+      <viewAttribute id="IdPSupervisor"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="#acn.hcm.gesteam.d::gesteamEntities.projects">
+      <mapping xsi:type="Calculation:AttributeMapping" target="projectId" source="projectId"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="projectName" source="projectName"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="IdPSupervisor" source="IdPSupervisor"/>
+    </input>
+    <input node="#Join_2$$$$acn.hcm.gesteam.d::gesteamEntities.Assignments$$">
+      <mapping xsi:type="Calculation:AttributeMapping" target="assignmentsID" source="assignmentsID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="userID" source="userID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="projectID" source="projectID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="supervisorID" source="supervisorID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="projectId" source="projectID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="IdPSupervisor" source="supervisorID"/>
+    </input>
+    <joinAttribute name="projectId"/>
+    <joinAttribute name="IdPSupervisor"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="Join_3" joinType="inner">
+    <viewAttributes>
+      <viewAttribute id="projectId"/>
+      <viewAttribute id="projectName"/>
+      <viewAttribute id="assignmentsID"/>
+      <viewAttribute id="userID"/>
+      <viewAttribute id="projectID"/>
+      <viewAttribute id="supervisorID"/>
+      <viewAttribute id="IdPSupervisor"/>
+      <viewAttribute id="username"/>
+    
+      <viewAttribute id="startDate"/>
+      <viewAttribute id="endDate"/>
+    
+      <viewAttribute id="date"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="#Join_2">
+      <mapping xsi:type="Calculation:AttributeMapping" target="projectId" source="projectId"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="projectName" source="projectName"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="assignmentsID" source="assignmentsID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="userID" source="userID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="projectID" source="projectID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="supervisorID" source="supervisorID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="IdPSupervisor" source="IdPSupervisor"/>
+    </input>
+    <input node="#Join_1">
+      <mapping xsi:type="Calculation:AttributeMapping" target="username" source="username"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="startDate" source="startDate"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="endDate" source="endDate"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="date" source="date"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="projectId" source="projectID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="assignmentsID" source="assignmentsID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="userID" source="userID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="projectID" source="projectID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="supervisorID" source="supervisorID"/>
+    </input>
+    <joinAttribute name="projectId"/>
+    <joinAttribute name="assignmentsID"/>
+    <joinAttribute name="userID"/>
+    <joinAttribute name="projectID"/>
+    <joinAttribute name="supervisorID"/>
+  </calculationView>
+</calculationViews>
+<logicalModel id="Join_3">
+  <attributes>
+    <attribute id="projectId" order="1" semanticType="empty" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="projectId"/>
+      <keyMapping columnObjectName="Join_3" columnName="projectId"/>
+    </attribute>
+    <attribute id="projectName" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="projectName"/>
+      <keyMapping columnObjectName="Join_3" columnName="projectName"/>
+    </attribute>
+    <attribute id="assignmentsID" order="3" semanticType="empty" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="assignmentsID"/>
+      <keyMapping columnObjectName="Join_3" columnName="assignmentsID"/>
+    </attribute>
+    <attribute id="userID" key="true" order="4" semanticType="empty" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="userID"/>
+      <keyMapping columnObjectName="Join_3" columnName="userID"/>
+    </attribute>
+    <attribute id="projectID" order="5" semanticType="empty" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="projectID"/>
+      <keyMapping columnObjectName="Join_3" columnName="projectID"/>
+    </attribute>
+    <attribute id="supervisorID" order="6" semanticType="empty" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="supervisorID"/>
+      <keyMapping columnObjectName="Join_3" columnName="supervisorID"/>
+    </attribute>
+    <attribute id="username" order="8" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="username"/>
+      <keyMapping columnObjectName="Join_3" columnName="username"/>
+    </attribute>
+  
+    <attribute id="startDate" order="9" semanticType="empty" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="startDate"/>
+      <keyMapping columnObjectName="Join_3" columnName="startDate"/>
+    </attribute>
+    <attribute id="endDate" order="10" semanticType="empty" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="endDate"/>
+      <keyMapping columnObjectName="Join_3" columnName="endDate"/>
+    </attribute>
+  
+    <attribute id="date" order="11" semanticType="empty" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="date"/>
+      <keyMapping columnObjectName="Join_3" columnName="date"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures>
+    <measure id="IdPSupervisor" order="7" aggregationType="sum" engineAggregation="count" measureType="simple">
+      <descriptions defaultDescription="IdPSupervisor"/>
+      <measureMapping columnObjectName="Join_3" columnName="IdPSupervisor"/>
+    </measure>
+  </baseMeasures>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+  <localDimensions/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+    <shape expanded="true" modelObjectName="Join_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="18" y="283"/>
+      <rectangleSize height="30" width="140"/>
+    </shape>
+    <shape expanded="true" modelObjectName="Join_2" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="206" y="365"/>
+      <rectangleSize height="30" width="140"/>
+    </shape>
+    <shape expanded="true" modelObjectName="Join_3" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="102" y="247"/>
+      <rectangleSize height="30" width="140"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

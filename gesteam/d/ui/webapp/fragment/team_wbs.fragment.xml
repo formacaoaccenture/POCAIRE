@@ -1,0 +1,71 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core"
+	xmlns:u="sap.ui.unified"
+	xmlns:mvc="sap.ui.core.mvc"
+	displayBlock="true"
+	xmlns:m="sap.m"
+	xmlns:html="http://www.w3.org/1999/xhtml" >
+	<Page id="team_wbs" showHeader="false" >
+			
+				<!-- Everything else in the page -->
+				<content>
+					<!-- In order to align every item accordingly -->
+					<VBox class="centered" >
+						<!-- Label with information about current user -->
+						<Label id = "txtlabel" text="{oUser>/user/info/role}" class=" textSize letterMedium marginBot marginTop alignleft"></Label>
+						
+						<!-- TABLE !! 
+							NOTES: 
+									oModel we access the model with id "oModel" 
+									press defines the function that fires when we click the object
+									this is all defined in the controller-->
+						<Table 
+					
+						class="main_table" 
+						id="main_table" 
+						selectionMode="MultiToggle" 
+						visibleRowCount="2" 
+						items="{WBS>/}" 
+						press="onClickTable">
+						
+							<!-- first we define the columns style 
+								column width = 45%+45%+10% -relative to VBOX -->
+							<columns>
+								<Column width="45%">
+									<m:Label text="{i18n>table_header1}"/>
+								</Column>
+								<Column width="45%">
+									<m:Label text="{i18n>table_header2}"/>
+								</Column>
+								<Column width="10%" class="ssapUiSmallMargin alignLeft" margin="0" padding="0">
+									<m:Label/>
+								</Column>
+							</columns>
+							
+							<!-- second we define the columns content -->
+							<ColumnListItem>
+								<cells>
+								<Text
+									text="{WBS>projectName}"/>
+									
+								<Text
+									text="{WBS>WBS}"/>
+									<Button text="{i18n>edit}" press="onClickEdit" width="100%"/>
+								</cells>
+							</ColumnListItem>
+						</Table>
+						
+						<!-- ADD Entry button  
+								width 10% because editbutton in Table is also 10% (45%+45%+10%)-->
+						<Button 
+						text="{i18n>add}" 
+						text-align="center"
+						class="alignright marginTop" 
+						press="onClickAdd" 
+						width="10%" 
+						type="Accept"></Button>
+					</VBox>
+				</content>
+			</Page>
+			</core:FragmentDefinition>

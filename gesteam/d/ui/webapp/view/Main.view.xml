@@ -1,0 +1,45 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns:tnt="sap.tnt" xmlns="sap.m" xmlns:core="sap.ui.core" controllerName="POCAIRE.controller.Main" height="100%">
+	<HBox width="100%" height="100%">
+		<VBox width="20%" height="100%">
+		
+			<HBox class="logo" width="100%" alignItems="Center" justifyContent="Center" height="6rem">
+			
+			</HBox>
+			
+			<VBox width="100%" class="Vbox vboxheight" alignItems="Center">
+				<Label text=""/>
+				<VBox width="100%">
+					<Button id="home" text="{i18n>menu_home}" class="alignTextCenter" width="100%" press="onPressHome"/>
+					<Label text="" class="fontsize white"/>
+				</VBox>
+				
+				<VBox width="100%">
+					<Button id="ausencias" text="{i18n>menu_absence}" class="alignTextCenter" width="100%" press="onPressAbsence"/>
+					<Button id="recursos" text="{i18n>menu_resources}" class="alignTextCenter" width="100%" press="onPressResources"/>
+					<Button id="horas" text="{i18n>menu_hours}" class="alignTextCenter" width="100%" press="onPressHours"/>
+					<Button id="wbs" text="{i18n>menu_wbs}" class="alignTextCenter" width="100%" press="onPressWBS"/>
+					<Button id="excel" text="{i18n>menu_excel}" class="alignTextCenter" width="100%" press="onPressUploadExcel"/>
+					<Button id="configuracoes" text="{i18n>menu_config}" class="alignTextCenter" width="100%" press="onPressConfigurations"/>
+				</VBox>
+				
+				<Label text="" class="fontsize white"/>
+				<Label text="" class="fontsize white"/>
+				<VBox width="100%">
+					<Button id="logout" text="{i18n>menu_logout}" class="alignTextCenter" width="100%" press="onPressLogout"/>
+				</VBox>
+			</VBox>
+		</VBox>
+		<VBox width="80%" height="100%">
+			<HBox width="100%" height="6rem" class="grey" alignItems="Center" justifyContent="Center">
+				<Label id="labelbotao" class="grey fontsize white letters"/>
+			</HBox>
+			<HBox width="100%" class="vboxheight correctwidth">
+				<App id="app" height="100%" width="100%">
+					<pages>
+						<core:Fragment fragmentName="POCAIRE.fragment.Home" type="XML"/>
+					</pages>
+				</App>
+			</HBox>
+		</VBox>
+	</HBox>       
+</mvc:View>

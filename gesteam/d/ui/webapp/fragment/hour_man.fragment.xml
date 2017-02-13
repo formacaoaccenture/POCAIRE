@@ -1,0 +1,43 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core"
+	xmlns:u="sap.ui.unified"
+	xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+	xmlns:html="http://www.w3.org/1999/xhtml"
+	xmlns:unified="sap.ui.unified">
+	<Page id="resourcesman" showHeader="false" title="{i18n>title}">
+		<content>
+			<HBox justifyContent="End">
+				<Select forceSelection="false" id="resourcesClients" selectedKey="" change="selectBox">
+					<core:Item key="resources" id="Resources" text="{i18n>resources}"/>
+					<core:Item key="clients" id="Clients" text="{i18n>clients}"/>
+				</Select>
+			</HBox>
+			<HBox justifyContent="End" id="hbox">
+				<Select id="select" forceSelection="false" items="{gestao_horas>/}" change="selectID">
+					<core:Item key="{gestao_horas>userID}" text="{gestao_horas>username}"/>
+				</Select>
+			</HBox>
+			<VBox class="sapUiSmallMargin">
+				<PlanningCalendar id="pPC1" startDate="{path: '/startDate'}" rows="1" appointmentsVisualization="Filled"
+					appointmentSelect="handleAppointmentSelect" viewChange="handleViewChange" showEmptyIntervalHeaders="false">
+					<views>
+						<PlanningCalendarView key="Day" intervalType="Day" description="Dias" intervalsS="1" intervalsM="15" intervalsL="1"></PlanningCalendarView>
+						<PlanningCalendarView key="Hour" intervalType="Month" description="Quinzena" intervalsS="1" intervalsM="6" intervalsL="1"></PlanningCalendarView>
+						<PlanningCalendarView key="Month" intervalType="Month" description="Mês" intervalsS="1" intervalsM="8" intervalsL="1"></PlanningCalendarView>
+					</views>
+					<rows>
+						<PlanningCalendarRow icon="{pic}" title="Empresa" text="INSERIR NOME" appointments="{oUser>time}" intervalHeaders="{headers}">
+							<appointments>
+								<unified:CalendarAppointment startDate="{oUser>startDate}" endDate="{oUser>endDate}" title="{gestao_horas>username}" text="HORAS"></unified:CalendarAppointment>
+							</appointments>
+							<intervalHeaders>
+								<unified:CalendarAppointment startDate="{start}" endDate="{end}"  title="{title}" type="{type}"></unified:CalendarAppointment>
+							</intervalHeaders>
+						</PlanningCalendarRow>
+					</rows>
+				</PlanningCalendar>
+			</VBox>
+		</content>
+	</Page>
+</core:FragmentDefinition>

@@ -1,0 +1,39 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core"
+	xmlns:html="http://www.w3.org/1999/xhtml" >
+	
+	<!-- Dialog is a type of popup box where content and buttons appear in certain places  -->
+	<Dialog title="{i18n>addDialogtitle}">
+		
+		<!-- Define inputs fields -->
+		<content>	
+			<HBox>
+				<Text text="clientID" class="textDialog"  />
+				<Input id="input_clientId" placeholder="{i18n>placeholder_clientId}" />
+			</HBox>
+			<HBox>
+				<Text text="projectID" class="textDialog"  />
+				<Input id="input_projectId" placeholder="{i18n>placeholder_projectId}" />
+			</HBox>
+			<HBox>
+				<Text text="supervisorID" class="textDialog"  />
+				<Input id="input_IdSupervisor" placeholder="{i18n>placeholder_IdSupervisor}" />
+			</HBox>
+			<HBox>
+				<Text text="projectName" class="textDialog"  />
+				<Input id="input_projectName" placeholder="{i18n>placeholder_projectName}" />
+			</HBox>
+			<HBox>
+				<Text text="WBS" class="textDialog"  />
+				<Input id="input_wbs" placeholder="{i18n>placeholder_wbs}" />
+			</HBox>
+		</content>
+		
+		<!-- buttons on the bottom -->
+		<buttons>
+				<Button text="{i18n>ok}" press="onAddOk"></Button>
+				<Button text="{i18n>close}" press="onAddClose"></Button>
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>

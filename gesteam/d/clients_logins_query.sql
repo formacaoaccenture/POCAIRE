@@ -1,0 +1,2 @@
+INSERT INTO "acn.hcm.gesteam.d::gesteamEntities.logins" VALUES ("acn.hcm.gesteam.d::logins".NEXTVAl, 'ana', CURRENT_TIMESTAMP);
+INSERT INTO "acn.hcm.gesteam.d::gesteamEntities.client" VALUES ("acn.hcm.gesteam.d::client".NEXTVAl, 'fresenius');

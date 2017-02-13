@@ -1,0 +1,41 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core"
+	xmlns:u="sap.ui.unified"
+	xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page id="gestaoAusencias" showHeader="false">
+		<content>
+			<!--VBox que delimita a pagina toda-->
+			<VBox width="100%" height="100%" alignItems="Center">
+				<!--VBox que contem o conteudo da pagina todo, com o width mais pequeno para dar margem-->
+				<VBox width="80%" height="100%" class="sapUiSmallMarginTop">
+					<!-- faço o binding do modelo. caso o modelo nao tivesse nome seria "{/}"-->
+					<HBox alignItems="Start" justifyContent="SpaceBetween" width="100%" height="20%">
+						<HBox>
+							<Label text="{i18n>text_colab}:" class="sapUiTinyMarginEnd"></Label>
+							<Label text="{path:'absenceDatesCollaborator>/', formatter:'POCAIRE.model.formatter.getFirstName'}" class="sapUiTinyMarginEnd"></Label>
+							<Label text="{path:'absenceDatesCollaborator>/', formatter:'POCAIRE.model.formatter.getLastName'}"></Label>
+						</HBox>
+						<VBox>
+							<HBox>
+								<Label class="box" text="{i18n>holidays}"></Label>
+								<Label class="days" text="{path:'absenceDatesCollaborator>/', formatter:'POCAIRE.model.formatter.getHolidays'}"></Label>
+							</HBox>
+							<HBox>
+								<Label class="box" text="{i18n>compensation}"></Label>
+								<Label class="days" text="{path:'absenceDatesCollaborator>/', formatter:'POCAIRE.model.formatter.getCompensation'}"></Label>
+							</HBox>
+						</VBox>
+					</HBox>
+					<u:Calendar id="calendar" select="handleCalendarSelect" width="100%" intervalSelection="true"  class ="sapUiTinyMarginTop" />
+					<u:CalendarLegend id="legend1"/>
+					<HBox class="sapUiTinyMarginTopBottom" binding="{Model>/}" justifyContent="End" width="100%">
+						<Label class="box" text="{i18n>txt_holidBal}"></Label>
+						<Label class="days" text="$$"></Label>
+					</HBox>
+				</VBox>
+			</VBox>
+		</content>
+	</Page>
+</core:FragmentDefinition>

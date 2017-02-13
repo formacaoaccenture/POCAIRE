@@ -1,0 +1,3 @@
+service {
+    "acn.hcm.gesteam.d.services/test5.calculationview" as "gestaoRecursos2View" keys ("userID");
+}  

@@ -1,0 +1,11 @@
+DELETE FROM "acn.hcm.gesteam.d::gesteamEntities.user";
+insert into "acn.hcm.gesteam.d::gesteamEntities.user" VALUES ("ACN_POC_GESTEAM"."acn.hcm.gesteam.d::user".NEXTVAL,1,'ana', 'ola1',true, '11','Ana','Costeira',32,10,34,'braga');
+insert into "acn.hcm.gesteam.d::gesteamEntities.user" VALUES ("ACN_POC_GESTEAM"."acn.hcm.gesteam.d::user".NEXTVAL,2,'luisa', 'ola2',false, '12','luisa','faria',34,11,30,'guimaraes');
+insert into "acn.hcm.gesteam.d::gesteamEntities.user" VALUES ("ACN_POC_GESTEAM"."acn.hcm.gesteam.d::user".NEXTVAL,3,'jose', 'ola3',false, '13','jose','braga',35,12,78,'lisboa');
+insert into "acn.hcm.gesteam.d::gesteamEntities.user" VALUES ("ACN_POC_GESTEAM"."acn.hcm.gesteam.d::user".NEXTVAL,4,'goncalo', 'ola4',false, '14','antonio','pimenta',36,13,77,'porto');
+insert into "acn.hcm.gesteam.d::gesteamEntities.user" VALUES ("ACN_POC_GESTEAM"."acn.hcm.gesteam.d::user".NEXTVAL,5,'tiago', 'ola5',false, '15','rui','pereira',37,14,45,'rio');
+insert into "acn.hcm.gesteam.d::gesteamEntities.user" VALUES ("ACN_POC_GESTEAM"."acn.hcm.gesteam.d::user".NEXTVAL,6,'rui', 'ola6',true, '16','manel','sequeira',38,15,23,'dortmund');
+insert into "acn.hcm.gesteam.d::gesteamEntities.user" VALUES ("ACN_POC_GESTEAM"."acn.hcm.gesteam.d::user".NEXTVAL,7,'pedro', 'ola7',true, '17','luis','silva',39,16,29,'braga');
+insert into "acn.hcm.gesteam.d::gesteamEntities.user" VALUES ("ACN_POC_GESTEAM"."acn.hcm.gesteam.d::user".NEXTVAL,1,'alex', 'ola8',false, '18','Ana','Costeira',32,10,34,'braga'); 
+insert into "acn.hcm.gesteam.d::gesteamEntities.user" VALUES ("ACN_POC_GESTEAM"."acn.hcm.gesteam.d::user".NEXTVAL,1,'rogerio', 'ola9',false, '19','rogerio','Costeira',32,10,34,'braga'); 
+insert into "acn.hcm.gesteam.d::gesteamEntities.user" VALUES ("ACN_POC_GESTEAM"."acn.hcm.gesteam.d::user".NEXTVAL,1,'roberto', 'ola10',true, '20','roberto','Costeira',56,9,24,'braga'); 

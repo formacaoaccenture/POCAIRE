@@ -1,0 +1,49 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core"
+	xmlns:u="sap.ui.unified"
+	xmlns:mvc="sap.ui.core.mvc"
+	displayBlock="true"
+	xmlns:m="sap.m"
+	xmlns:html="http://www.w3.org/1999/xhtml"  >
+<Page id="user_wbs"  >
+	
+			<content >
+					
+					<VBox class="centered" >
+						<Label  id = "txtlabel" text="{oUser>user/info/role}" class="alignleft blue marginBot marginTop" >
+						</Label>
+						<Table
+							class="main_table"
+							id="main_table"
+							items="{WBS>/}"
+							press = "onClickTable">
+						<columns>
+							<Column width="45%">
+								<m:Label text="{i18n>table_header1}" />
+							</Column>
+							
+							<Column width="45%">
+								<m:Label text="{i18n>table_header2}" />
+							</Column>
+						
+					
+						</columns>	
+						
+						<ColumnListItem>
+							<cells>
+								<Text
+									text="{WBS>projectName}"/>
+									
+								<Text
+									text="{WBS>WBS}"/>
+							</cells>
+								</ColumnListItem>
+						</Table>
+						
+					
+					</VBox>
+					
+				</content>
+			</Page>
+			</core:FragmentDefinition>

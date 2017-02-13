@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="gestao_horas_res" applyPrivilegeType="ANALYTIC_PRIVILEGE" dataCategory="CUBE" dimensionType="STANDARD" schemaVersion="2.3" defaultClient="$$client$$" visibility="reportingEnabled" outputViewType="Aggregation" calculationScenarioType="TREE_BASED" enforceSqlExecution="false">
+<descriptions defaultDescription="gestao_horas_res"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="acn.hcm.gesteam.d::gesteamEntities.user" type="DATA_BASE_TABLE">
+    <viewAttributes allViewAttributes="true"/>
+    <columnObject schemaName="ACN_POC_GESTEAM" columnObjectName="acn.hcm.gesteam.d::gesteamEntities.user"/>
+  </DataSource>
+  <DataSource id="acn.hcm.gesteam.d::gesteamEntities.Assignments" type="DATA_BASE_TABLE">
+    <viewAttributes allViewAttributes="true"/>
+    <columnObject schemaName="ACN_POC_GESTEAM" columnObjectName="acn.hcm.gesteam.d::gesteamEntities.Assignments"/>
+  </DataSource>
+  <DataSource id="Join_2$$$$acn.hcm.gesteam.d::gesteamEntities.Assignments$$" type="DATA_BASE_TABLE">
+    <viewAttributes allViewAttributes="true"/>
+    <columnObject schemaName="ACN_POC_GESTEAM" columnObjectName="acn.hcm.gesteam.d::gesteamEntities.Assignments"/>
+  </DataSource>
+  <DataSource id="acn.hcm.gesteam.d::gesteamEntities.projects" type="DATA_BASE_TABLE">
+    <viewAttributes allViewAttributes="true"/>
+    <columnObject schemaName="ACN_POC_GESTEAM" columnObjectName="acn.hcm.gesteam.d::gesteamEntities.projects"/>
+  </DataSource>
+  <DataSource id="Join_3$$$$acn.hcm.gesteam.d::gesteamEntities.projects$$" type="DATA_BASE_TABLE">
+    <viewAttributes allViewAttributes="true"/>
+    <columnObject schemaName="ACN_POC_GESTEAM" columnObjectName="acn.hcm.gesteam.d::gesteamEntities.projects"/>
+  </DataSource>
+  <DataSource id="acn.hcm.gesteam.d::gesteamEntities.client" type="DATA_BASE_TABLE">
+    <viewAttributes allViewAttributes="true"/>
+    <columnObject schemaName="ACN_POC_GESTEAM" columnObjectName="acn.hcm.gesteam.d::gesteamEntities.client"/>
+  </DataSource>
+</dataSources>
+<calculationViews>
+  <calculationView xsi:type="Calculation:JoinView" id="Join_1" joinType="inner">
+    <viewAttributes>
+      <viewAttribute id="userID"/>
+      <viewAttribute id="username"/>
+      <viewAttribute id="date"/>
+      <viewAttribute id="hours"/>
+      <viewAttribute id="projectID"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="#acn.hcm.gesteam.d::gesteamEntities.user">
+      <mapping xsi:type="Calculation:AttributeMapping" target="userID" source="userID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="username" source="username"/>
+    </input>
+    <input node="#acn.hcm.gesteam.d::gesteamEntities.Assignments">
+      <mapping xsi:type="Calculation:AttributeMapping" target="date" source="date"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="hours" source="hours"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="projectID" source="projectID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="userID" source="userID"/>
+    </input>
+    <joinAttribute name="userID"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="Join_2" joinType="inner">
+    <viewAttributes>
+      <viewAttribute id="JOIN$projectID$projectId" hidden="true"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="#Join_2$$$$acn.hcm.gesteam.d::gesteamEntities.Assignments$$">
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$projectID$projectId" source="projectID"/>
+    </input>
+    <input node="#acn.hcm.gesteam.d::gesteamEntities.projects">
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$projectID$projectId" source="projectId"/>
+    </input>
+    <joinAttribute name="JOIN$projectID$projectId"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="Join_3" joinType="inner">
+    <viewAttributes>
+      <viewAttribute id="clientName"/>
+      <viewAttribute id="clientId"/>
+      <viewAttribute id="JOIN$clientId$clientId" hidden="true"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="#Join_3$$$$acn.hcm.gesteam.d::gesteamEntities.projects$$">
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$clientId$clientId" source="clientId"/>
+    </input>
+    <input node="#acn.hcm.gesteam.d::gesteamEntities.client">
+      <mapping xsi:type="Calculation:AttributeMapping" target="clientName" source="clientName"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="clientId" source="clientId"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$clientId$clientId" source="clientId"/>
+    </input>
+    <joinAttribute name="JOIN$clientId$clientId"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="Join_4">
+    <viewAttributes>
+      <viewAttribute id="username"/>
+      <viewAttribute id="date"/>
+      <viewAttribute id="hours"/>
+      <viewAttribute id="userID"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="#Join_1">
+      <mapping xsi:type="Calculation:AttributeMapping" target="username" source="username"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="date" source="date"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="hours" source="hours"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="userID" source="userID"/>
+    </input>
+    <input node="#Join_2"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="Join_5">
+    <viewAttributes>
+      <viewAttribute id="clientName"/>
+      <viewAttribute id="clientId"/>
+      <viewAttribute id="username"/>
+      <viewAttribute id="date"/>
+      <viewAttribute id="hours"/>
+      <viewAttribute id="userID"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="#Join_3">
+      <mapping xsi:type="Calculation:AttributeMapping" target="clientName" source="clientName"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="clientId" source="clientId"/>
+    </input>
+    <input node="#Join_4">
+      <mapping xsi:type="Calculation:AttributeMapping" target="username" source="username"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="date" source="date"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="hours" source="hours"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="userID" source="userID"/>
+    </input>
+  </calculationView>
+</calculationViews>
+<logicalModel id="Join_5">
+  <attributes>
+    <attribute id="clientName" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="clientName"/>
+      <keyMapping columnObjectName="Join_5" columnName="clientName"/>
+    </attribute>
+    <attribute id="clientId" order="2" semanticType="empty" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="clientId"/>
+      <keyMapping columnObjectName="Join_5" columnName="clientId"/>
+    </attribute>
+    <attribute id="username" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="username"/>
+      <keyMapping columnObjectName="Join_5" columnName="username"/>
+    </attribute>
+    <attribute id="date" order="4" semanticType="empty" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="date"/>
+      <keyMapping columnObjectName="Join_5" columnName="date"/>
+    </attribute>
+    <attribute id="hours" order="5" semanticType="empty" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="hours"/>
+      <keyMapping columnObjectName="Join_5" columnName="hours"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures>
+    <measure id="userID" order="6" aggregationType="sum" measureType="simple" engineAggregation="count">
+      <descriptions defaultDescription="userID"/>
+      <measureMapping columnObjectName="Join_5" columnName="userID"/>
+    </measure>
+  </baseMeasures>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+  <localDimensions/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="Join_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="78" y="231"/>
+      <rectangleSize height="30" width="140"/>
+    </shape>
+    <shape expanded="true" modelObjectName="Join_2" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="198" y="360"/>
+      <rectangleSize height="30" width="140"/>
+    </shape>
+    <shape expanded="true" modelObjectName="Join_3" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="353" y="368"/>
+      <rectangleSize height="30" width="140"/>
+    </shape>
+    <shape expanded="true" modelObjectName="Join_4" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="101" y="278"/>
+      <rectangleSize height="30" width="140"/>
+    </shape>
+    <shape expanded="true" modelObjectName="Join_5" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="286" y="240"/>
+      <rectangleSize height="30" width="140"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

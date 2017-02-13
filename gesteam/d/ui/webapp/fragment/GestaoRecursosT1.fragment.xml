@@ -1,0 +1,70 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core"
+	xmlns:html="http://www.w3.org/1999/xhtml" >
+<Table id="oTabela1" inset="false" items="{gestao_recursos1>/}" visible="true" >
+								<headerToolbar>
+									<Toolbar>
+										<Title text="" level="H2"/>
+									</Toolbar>
+								</headerToolbar>
+								<columns>
+									
+									<Column hAlign="Center" width="5em" minScreenWidth="Tablet" demandPopin="true">
+										<Text text="{i18n>name}"/>
+									</Column>
+									<Column hAlign="Center" width="5em" minScreenWidth="Tablet" demandPopin="true">
+										<Text text="{i18n>role}"/>
+									</Column>
+									<Column hAlign="Center" width="5em" minScreenWidth="Tablet" demandPopin="true">
+										<Text text="{i18n>ext}"/>
+									</Column>
+									<Column hAlign="Center" width="5em" minScreenWidth="Tablet" demandPopin="true">
+										<Text text="{i18n>assignee}"/>
+									</Column>
+									<Column hAlign="Center" width="7.5em" minScreenWidth="Tablet" demandPopin="true">
+										<Text text="{i18n>start}"/>
+									</Column>
+									<Column hAlign="Center" width="7.5em" minScreenWidth="Tablet" demandPopin="true">
+										<Text text="{i18n>end}"/>
+									</Column>
+									<Column hAlign="Center" width="5em" minScreenWidth="Tablet" demandPopin="true">
+										<Text text="{i18n>local}"/>
+									</Column>
+									<Column hAlign="Center" width="5em" minScreenWidth="Tablet" demandPopin="true">
+										<Text text="{i18n>status}"/>
+									</Column>
+									<Column hAlign="Center" width="1em" minScreenWidth="Tablet" demandPopin="true">
+										<Text text=""/>
+									</Column>
+								</columns>
+								<items>
+									<ColumnListItem vAlign="Middle" type="Navigation">
+										<cells>
+											<Input value="{gestao_recursos1>username}"/>
+											<Input id="input_level" value="{gestao_recursos1>level}" />
+											<Input id="input_ext" value="{gestao_recursos1>ext}" />
+											<Input value="{gestao_recursos1>projectID}"/>
+											<DatePicker  displayFormat="dd/MM/yyy" value="{gestao_recursos1>startDate}"/>
+											<DatePicker  displayvalue="dd/MM/yyy" value="{gestao_recursos1>endDate}" />
+											<Input id="input_local" value="{gestao_recursos1>local}" />
+											<Input value="{gestao_recursos1>status1}" />
+											<Button text="{i18n>save}" press="onSave"/>
+										</cells>
+									</ColumnListItem>
+								</items>
+							</Table>
+							<!--
+							<Button
+								id="button_resAdd" 
+								text="{i18n>add}"
+								press="btn_resAdd">
+							</Button>
+							
+							
+							<Button
+								id = "button_resSave"
+								text="{i18n>save}"
+								press="btn_resSave">
+							</Button> -->
+</core:FragmentDefinition>

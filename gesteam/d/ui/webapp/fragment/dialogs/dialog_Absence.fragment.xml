@@ -1,0 +1,21 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout">
+	<Dialog showHeader="false">
+		<content>
+			<VBox alignItems="Center" width="100%" height="80%">
+				<ToggleButton class="toggle" text="{i18n>holidays}" enabled="true" pressed="true" press="onPressFerias"/>
+				<ToggleButton class="toggle" text="{i18n>training}" enabled="true" pressed="false" press="onPressFormacao"/>
+				<Input class="hour" id="horaInicio" placeholder="{i18n>starthour}"></Input>
+				<Input class="hour" id="horaFim" placeholder="{i18n>endhour}"></Input>
+				<TextArea  id="coment" class="input" placeholder="{i18n>insertComment}"></TextArea>
+			</VBox>
+		</content>
+	
+			<beginButton>
+				<Button text="{i18n>ok}" press="checkEvent"></Button>
+			</beginButton>
+			<endButton>
+				<Button text="{i18n>cancel}" press="closeDialog"></Button>
+			</endButton>
+
+	</Dialog>
+</core:FragmentDefinition>

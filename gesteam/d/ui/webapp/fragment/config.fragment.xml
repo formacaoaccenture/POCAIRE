@@ -1,0 +1,22 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core"
+	xmlns:u="sap.ui.unified"
+	xmlns:mvc="sap.ui.core.mvc"
+	displayBlock="true"
+	xmlns:m="sap.m"
+	xmlns:html="http://www.w3.org/1999/xhtml" >
+<Page id="config" showHeader="false">
+		
+				<content>
+					<VBox width="100%" height="100%" alignItems="Center">
+						<VBox height="20%" alignItems="Center"></VBox>
+						<VBox alignItems="Start">
+							<Button text="{i18n>config1}" press="onPress" width="25rem" id="botao1"/>
+							<Button text="{i18n>config2}" press="onPress" class="sapUiMediumMarginTop" width="25rem" id="botao2"/>
+							<Button text="{i18n>config3}" press="onPress" class="sapUiMediumMarginTop" width="25rem" id="botao3"/>
+						</VBox>
+					</VBox>
+				</content>
+			</Page>
+			</core:FragmentDefinition>
