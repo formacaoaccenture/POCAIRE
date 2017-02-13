@@ -16,22 +16,24 @@ sap.ui.define([
 		handleViewChange: function(oEvent) {
 
 			var key = oEvent.getSource().mProperties.viewKey;
+			var property=sap.ui.getCore().getModel("oUser").setProperty("/user/hoursManagement", hoursManagement);
+
+			var refresh = sap.ui.getCore().getModel("oUser").refresh();
 
 			switch (key) {
 				case "Day":
 					var hoursManagement = sap.ui.getCore().getModel("oUser").getProperty("/user/hoursManagementDay");
+					property;
+					refresh;
 
-					sap.ui.getCore().getModel("oUser").setProperty("/user/hoursManagement", hoursManagement);
-
-					sap.ui.getCore().getModel("oUser").refresh();
 					break;
 
 				case "Hour":
 
 					var hoursManagement = sap.ui.getCore().getModel("oUser").getProperty("/user/hoursManagement15");
 
-					sap.ui.getCore().getModel("oUser").setProperty("/user/hoursManagement", hoursManagement);
-					sap.ui.getCore().getModel("oUser").refresh();
+					property;
+					refresh;
 					break;
 
 				case "Month":
