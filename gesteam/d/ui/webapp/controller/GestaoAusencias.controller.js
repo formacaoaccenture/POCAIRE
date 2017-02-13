@@ -8,6 +8,7 @@ var ausencias;
 var controller;
 var botao = 1;
 var oModel;
+var existe = 0;
 
 
 
@@ -90,7 +91,7 @@ return Controller.extend("POCAIRE.controller.GestaoAusencias", {
 					}
 					break;
 			}
-			var existe = 0;
+			
 			for (var j in legenda.getItems()) {
 				//igual a zero nao existe -->flags
 				if (legenda.getItems()[j].getType() === sType) {
@@ -240,7 +241,7 @@ return Controller.extend("POCAIRE.controller.GestaoAusencias", {
 		insertXS(newAbsence);
 		
 		
-		var existe = 0;
+		
 		for (var j in legenda.getItems()) {
 			//igual a zero nao existe -->flags
 			if (legenda.getItems()[j].getType() === sType) {
