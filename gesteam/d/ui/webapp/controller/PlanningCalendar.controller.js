@@ -282,12 +282,13 @@ sap.ui.define(['sap/ui/core/mvc/Controller',
 				var approvalType = oEvent.getParameter("selectedItem").mProperties.key;
 				var statusSelected
 				var tableRowID
-				var oInput
+				var oInput={
+						statusSelected: statusSelected,
+						tableRowID: tableRowID
+					};
 
 				if (approvalType == "approved") { //if "Approve" was selected
-					sap.ui.getCore().byId("listaDeTable").getModel("newAbsencesDates").setProperty("/" + rowPlusCombo[0] +
-						"/Status/" +
-						rowPlusCombo[1] +
+					sap.ui.getCore().byId("listaDeTable").getModel("newAbsencesDates").setProperty("/" + rowPlusCombo[0] +"/Status/" +rowPlusCombo[1] +
 						"/", "APPROVED");
 					
 					statusSelected = sap.ui.getCore().byId("listaDeTable").getModel("newAbsencesDates").getProperty("/" + rowPlusCombo[0] +
@@ -297,10 +298,7 @@ sap.ui.define(['sap/ui/core/mvc/Controller',
 						
 					tableRowID = sap.ui.getCore().byId("listaDeTable").getModel("newAbsencesDates").getProperty("/" + rowPlusCombo[0] + "/TableID/" +
 						rowPlusCombo[1] + "/");
-					oInput = {
-						statusSelected: statusSelected,
-						tableRowID: tableRowID
-					};
+					oInput;
 
 					editXS(oInput);
 
@@ -313,10 +311,7 @@ sap.ui.define(['sap/ui/core/mvc/Controller',
 						"/");
 					tableRowID = sap.ui.getCore().byId("listaDeTable").getModel("newAbsencesDates").getProperty("/" + rowPlusCombo[0] + "/TableID/" +
 						rowPlusCombo[1] + "/");
-					oInput = {
-						statusSelected: statusSelected,
-						tableRowID: tableRowID
-					};
+					oInput;
 
 					editXS(oInput);
 
