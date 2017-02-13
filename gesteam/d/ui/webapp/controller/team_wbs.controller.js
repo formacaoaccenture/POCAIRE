@@ -9,6 +9,13 @@ sap.ui.define([
 	var editDialog;
 	var editLine;
 	var selectObject;
+	var modelo =	jsonData.push({
+			projectId: data.projectId,
+			clientId: data.clientId,
+			idPSupervisor: data.idPSupervisor,
+			projectName: data.projectName,
+			WBS: data.WBS
+		});
 	return Controller.extend("POCAIRE.controller.team_wbs", {
 
 		// Define what happens when the view is open
@@ -158,14 +165,7 @@ sap.ui.define([
 		
 		var jsonData = [];
 
-		jsonData.push({
-			projectId: data.projectId,
-			clientId: data.clientId,
-			idPSupervisor: data.idPSupervisor,
-			projectName: data.projectName,
-			WBS: data.WBS
-			
-		});
+		var modelo;
 
         // send data to <xsURL>service
 	    /*$.post(
@@ -206,14 +206,8 @@ sap.ui.define([
 		
 		//create object
 		var jsonData = [];
-		jsonData.push({
-			projectId: data.projectId,
-			clientId: data.clientId,
-			idPSupervisor: data.idPSupervisor,
-			projectName: data.projectName,
-			WBS: data.WBS
-		});
 
+		var modelo;
 
         $.ajax({
 			    type: "PUT",
