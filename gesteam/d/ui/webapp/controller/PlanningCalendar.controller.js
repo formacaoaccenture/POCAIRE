@@ -207,12 +207,13 @@ sap.ui.define(['sap/ui/core/mvc/Controller',
 				var oModel = this.getView().getModel();
 				var oData = oModel.getData();
 				var iIndex = -1;
+				funçãoestupida();
 				var oAppointment = {
 					start: oStartDate,
 					end: oEndDate,
 					title: "new appointment",
 					type: "Type09"
-				}
+				};
 
 				if (oRow) {
 					iIndex = oPC.indexOfRow(oRow);
