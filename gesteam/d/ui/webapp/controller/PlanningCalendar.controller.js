@@ -280,24 +280,25 @@ sap.ui.define(['sap/ui/core/mvc/Controller',
 
 			onComboBoxStatusChange: function(oEvent) {
 				var approvalType = oEvent.getParameter("selectedItem").mProperties.key;
-				var statusSelected
-				var tableRowID
+				var statusSelected = = sap.ui.getCore().byId("listaDeTable").getModel("newAbsencesDates").getProperty("/" + rowPlusCombo[0] +
+						"/Status/" +
+						rowPlusCombo[1] +
+						"/");
+				var tableRowID = sap.ui.getCore().byId("listaDeTable").getModel("newAbsencesDates").getProperty("/" + rowPlusCombo[0] + "/TableID/" +
+						rowPlusCombo[1] + "/");
 				var oInput={
 						statusSelected: statusSelected,
 						tableRowID: tableRowID
 					};
 
+
 				if (approvalType == "approved") { //if "Approve" was selected
 					sap.ui.getCore().byId("listaDeTable").getModel("newAbsencesDates").setProperty("/" + rowPlusCombo[0] +"/Status/" +rowPlusCombo[1] +
 						"/", "APPROVED");
 					
-					statusSelected = sap.ui.getCore().byId("listaDeTable").getModel("newAbsencesDates").getProperty("/" + rowPlusCombo[0] +
-						"/Status/" +
-						rowPlusCombo[1] +
-						"/");	
+					statusSelected;	
 						
-					tableRowID = sap.ui.getCore().byId("listaDeTable").getModel("newAbsencesDates").getProperty("/" + rowPlusCombo[0] + "/TableID/" +
-						rowPlusCombo[1] + "/");
+					tableRowID;
 					oInput;
 
 					editXS(oInput);
@@ -305,12 +306,8 @@ sap.ui.define(['sap/ui/core/mvc/Controller',
 				} else if (approvalType == "rejected") { //if "Approve" was selected
 					sap.ui.getCore().byId("listaDeTable").getModel("newAbsencesDates").setProperty("/" + rowPlusCombo[0] + "/Status/" + rowPlusCombo[1] +
 						"/", "REJECTED");
-					statusSelected = sap.ui.getCore().byId("listaDeTable").getModel("newAbsencesDates").getProperty("/" + rowPlusCombo[0] +
-						"/Status/" +
-						rowPlusCombo[1] +
-						"/");
-					tableRowID = sap.ui.getCore().byId("listaDeTable").getModel("newAbsencesDates").getProperty("/" + rowPlusCombo[0] + "/TableID/" +
-						rowPlusCombo[1] + "/");
+					statusSelected;
+					tableRowID;
 					oInput;
 
 					editXS(oInput);
