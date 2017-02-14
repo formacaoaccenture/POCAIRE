@@ -212,7 +212,7 @@ sap.ui.define(['sap/ui/core/mvc/Controller',
 					end: oEndDate,
 					title: "new appointment",
 					type: "Type09"
-				};
+				}
 
 				if (oRow) {
 					iIndex = oPC.indexOfRow(oRow);
@@ -301,7 +301,7 @@ sap.ui.define(['sap/ui/core/mvc/Controller',
 					tableRowID;
 					oInput;
 
-					editXS(oInput);
+					editXS(oInput);	
 
 				} else if (approvalType == "rejected") { //if "Approve" was selected
 					sap.ui.getCore().byId("listaDeTable").getModel("newAbsencesDates").setProperty("/" + rowPlusCombo[0] + "/Status/" + rowPlusCombo[1] +
