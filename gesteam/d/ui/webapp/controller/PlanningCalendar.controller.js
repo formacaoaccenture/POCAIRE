@@ -198,6 +198,8 @@ sap.ui.define(['sap/ui/core/mvc/Controller',
 				}
 			},
 
+
+
 			handleIntervalSelect: function(oEvent) {
 				var oPC = oEvent.oSource;
 				var oStartDate = oEvent.getParameter("startDate");
@@ -213,7 +215,9 @@ sap.ui.define(['sap/ui/core/mvc/Controller',
 					end: oEndDate,
 					title: "new appointment",
 					type: "Type09"
-				};
+				}
+
+					funcao++
 
 				if (oRow) {
 					iIndex = oPC.indexOfRow(oRow);
